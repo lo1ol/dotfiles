@@ -1,0 +1,38 @@
+swipe:
+  3:
+    left:
+      command: "swaymsg workspace prev" # History forward
+    right:
+      command: "swaymsg workspace next" # History back
+    up:
+      command: "xdotool key super" # Activity
+    down:
+      command: "xdotool key super" # Activity
+  4:
+    left:
+      command: "playerctl previous"
+    right:
+      command: "playerctl next"
+    up:
+      command: "pactl set-sink-volume 0 +1%" # Switch to next workspace
+      threshold: 0.05
+      interval: 0.01
+    down:
+      command: "pactl set-sink-volume 0 -1%" # Switch to next workspace
+      threshold: 0.05
+      interval: 0.01
+pinch:
+  in:
+    command: "xdotool keydown ctrl click 4 keyup ctrl" # Zoom in
+  out:
+    command: "xdotool keydown ctrl click 5 keyup ctrl" # Zoom out
+
+tap:
+  4:
+    command: "playerctl play-pause"
+
+plugin: 
+  inputs:
+    libinput_command_input:
+      enable-tap: true
+      verbose: true
