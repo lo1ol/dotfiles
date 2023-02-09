@@ -134,11 +134,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lo1ol/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/lo1ol/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
   }
 }
 

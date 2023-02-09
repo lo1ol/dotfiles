@@ -1,15 +1,13 @@
 vim.cmd('packadd packer.nvim')
 
 local packer = require'packer'
-
 --- startup and add configure plugins
 packer.startup(function()
   local use = use
   use 'wbthomason/packer.nvim' -- Package manager
-
   -- syntax highlyters
   use { 'nvim-treesitter/nvim-treesitter', {run = ":TSUpdate"} }
-  use 'sheerun/vim-polyglot'
+  -- use 'sheerun/vim-polyglot' -- too slow
 
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
@@ -35,4 +33,3 @@ packer.startup(function()
 
   use 'theprimeagen/harpoon'
 end)
-
