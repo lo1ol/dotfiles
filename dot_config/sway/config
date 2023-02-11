@@ -22,7 +22,7 @@ set $menu exec env TERMINAL_COMMAND="foot -e"  $term --app-id=launcher -e sway-l
 
 set $sway_dir ~/.config/sway
 
-set $fancy_lock  "swaylock --image ~/.config/sway/bg.jpg --clock --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2"
+set $fancy_lock  "swaylock -f --image ~/.config/sway/bg.jpg --clock --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2"
 
 for_window [app_id="launcher"] floating enable, sticky enable, resize set width 30ppt, resize set height 60ppt, border pixel 10
 for_window [title="^Picture in Picture$"] floating enable, sticky enable, resize shrink width 70ppt, resize shrink height 70ppt
@@ -44,10 +44,12 @@ output * bg $sway_dir/bg.jpg fill
 #
 # Example configuration:
 #
+
+exec sway-audio-idle-inhibit
 exec swayidle -w \
-         timeout 300 "$fancy_lock" \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         timeout 600 $fancy_lock \
+         timeout 630 '$sway_dir/nice_light_off.sh off' resume '$sway_dir/nice_light_off.sh on' \
+         timeout 900 'systemctl suspend'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -108,10 +110,10 @@ input type:keyboard {
     bindsym --to-code $mod+Right focus right
 
     # Ditto, with arrow keys
-    bindsym --to-code $mod+Shift+Left move left
-    bindsym --to-code $mod+Shift+Down move down
-    bindsym --to-code $mod+Shift+Up move up
-    bindsym --to-code $mod+Shift+Right move right
+    bindsym --to-code $mod+Shift+Left move left 100px
+    bindsym --to-code $mod+Shift+Down move down 100px
+    bindsym --to-code $mod+Shift+Up move up 100px
+    bindsym --to-code $mod+Shift+Right move right 100px
 #
 # Workspaces:
 #
@@ -245,6 +247,6 @@ gaps inner 10
 include /etc/sway/config.d/*
 
 exec zulip
-exec telegram -startintray
+exec sh -c "sleep 3; telegram-desktop -startintray"
 
 exec $term
