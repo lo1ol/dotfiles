@@ -3,6 +3,7 @@ fusuma
 
 # Контроль аудио
 alsamixer
+qjackctl
 
 # Контроль событий ввода, и получение идентификатора клавиш
 wev
@@ -14,8 +15,7 @@ prime-run
 # Контроль GPU
 nvtop
 intel_gpu_top
-envycontrol --switch ...
-
+nvx
 
 # Контрль потребления энергии
 powertop

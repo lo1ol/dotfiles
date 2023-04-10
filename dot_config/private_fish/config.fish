@@ -10,10 +10,11 @@ alias ll='ls -la'
 
 alias swayconf='nvim ~/.config/sway/config'
 alias nvimconf='nvim ~/.config/nvim/init.lua'
-alias vim='nvim'
+
 
 export PATH="/opt/clang-format-static:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export LD_LIBRARY_PATH=/usr/local/lib
 
 export TERMINAL=foot
@@ -24,6 +25,9 @@ for file in $(ls -1 $HOME/.config/fish/*.fish | grep -v "config\.fish")
     source $file
 end
 
+function fish_right_prompt
+  #intentionally left blank
+ end
 
 if [ $(tty) = "/dev/tty1" ] && [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ];
 	#export WLR_NO_HARDWARE_CURSORS=1
