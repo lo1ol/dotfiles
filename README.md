@@ -15,7 +15,7 @@ prime-run
 # Контроль GPU
 nvtop
 intel_gpu_top
-nvx
+envycontrol
 
 # Контрль потребления энергии
 powertop

@@ -1,6 +1,7 @@
 sort=-time
 border-color=#e0def4
 background-color=#c4a7e7
+text-color=#191724
 
 [app-name="screenshot"]
 default-timeout=5000
